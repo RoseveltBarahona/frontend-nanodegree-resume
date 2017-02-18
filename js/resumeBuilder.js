@@ -2,7 +2,7 @@ var bio = {
     "name": "rosevelt,",
     "role": "designer",
     "contacts": {
-        "mail": "aa@aa.com",
+        "mail_loco": "aa@aa.com",
         "phone": "671069828",
     },
     "welcomeMessage": "Noticias diarias de skate, videos, tutoriales, tienda online y tienda de skate en Madrid desde 2005. Todo sobre el skateboard en una sola web.",
@@ -27,7 +27,6 @@ var education = {
         "title": "css",
         "price": "1000"
     }]
-
 };
 
 var work = {
@@ -70,23 +69,29 @@ bio.display = function() {
     $("#header").append(formattedBioPic);
 
     $("#header").append(HTMLskillsStart);
+
     for (i = 0; i < bio.skills.length; i++) {
         console.log(i);
         var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
         $("#skills").append(formattedSkill);
     }
 
+    for (contact in bio.contacts) {
+        var formattedContact = HTMLcontactGeneric.replace("%data%", bio.contacts[contact]);
+        formattedContact = formattedContact.replace("%contact%", contact);
+        $("#topContacts").append(formattedContact);
+    }
     /*    if (bio.skills.length > 0) {
-            $("#header").append(HTMLskillsStart);
-            var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-            $("#skills").append(formattedSkill);
+        $("#header").append(HTMLskillsStart);
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+        $("#skills").append(formattedSkill);
 
-            formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-            $("#skills").append(formattedSkill);
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+        $("#skills").append(formattedSkill);
 
-            formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-            $("#skills").append(formattedSkill);
-        }*/
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+        $("#skills").append(formattedSkill);
+    }*/
 };
 
 projects.display = function() {
@@ -145,6 +150,12 @@ work.display = function() {
     }
 };
 
+projects.display();
+work.display();
+bio.display();
+education.display();
+$("#mapDiv").append(googleMap);
+
 
 $("#main").append(internationalizeButton);
 
@@ -156,10 +167,7 @@ function inName() {
 }
 $("button").click(inName);
 
-projects.display();
-work.display();
-bio.display();
-education.display();
+
 
 
 
@@ -185,17 +193,16 @@ function locationizer(work_obj) {
 }
 console.log(locationizer(work));
 
-
 // BUSCANDO WORK LOCATIONS CON FOR IN  
-function locationizer(work_obj) {
+function locationizer2(work_obj) {
     locationsWork = [];
     for (location in work_obj.jobs) {
-        var location = work_obj.jobs[job].location;
+        var location = work_obj.jobs[location].location;
         locationsWork.push(location);
     }
     return locationsWork;
 }
-console.log(locationizer(work));
+console.log(locationizer2(work));
 
 
 //document.getElementById("main").innerHTML += internationalizeButton;
@@ -207,3 +214,38 @@ console.log(locationizer(work));
     console.log(nameMofified);
 }
 inNamexx("pepe perez");*/
+
+
+
+
+var moonWalkers = [
+  "Neil Armstrong",
+  "Buzz Aldrin",
+  "Pete Conrad",
+  "Alan Bean",
+  "Alan Shepard",
+  "Edgar Mitchell",
+  "David Scott",
+  "James Irwin",
+  "John Young",
+  "Charles Duke",
+  "Eugene Cernan",
+  "Harrison Schmitt"
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
