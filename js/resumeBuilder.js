@@ -233,11 +233,35 @@ var moonWalkers = [
   "Harrison Schmitt"
 ];
 
+function alphabetizer(names) {
+    // Your code goes here!
+    newmoonWalkers = [];
+    for ( i = 0 ; i < names.length ; i++){
+       var namex = names[i].split(" ");
+       namex.reverse();
+       nameString = namex.join(" ");
+       newmoonWalkers.push(nameString);
+    }
+    names = newmoonWalkers.sort();
+    return names;
+
+}
+
+// Try logging your results to test your code!
+console.log(alphabetizer(moonWalkers));
 
 
+var edad = 6;
 
-
-
+if (edad > 0 && edad < 11) {
+    if (edad > 5) {
+        console.log(" tienes mas de 5 años");
+    } else {
+        console.log("tienes menos de 5 años");
+    }
+} else {
+    console.log("mayor que 10");
+}
 
 
 
