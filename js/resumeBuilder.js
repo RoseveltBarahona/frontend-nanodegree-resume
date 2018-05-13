@@ -247,9 +247,15 @@ function alphabetizer(names) {
 
 }
 
-// Try logging your results to test your code!
 console.log(alphabetizer(moonWalkers));
 
+
+for (item in moonWalkers){
+    console.log(moonWalkers[item]);
+}
+
+
+//////////
 
 var edad = 6;
 
